@@ -122,7 +122,7 @@ const AboutPage = () => {
                 <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-accent rounded-full flex items-center justify-center text-white shadow-warm">
                   <div className="text-center">
                     <Calendar className="h-6 w-6 mx-auto mb-1" />
-                    <div className="text-xs font-bold">2018</div>
+                    <div className="text-xs font-bold">2025</div>
                   </div>
                 </div>
               </motion.div>
