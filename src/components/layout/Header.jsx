@@ -32,7 +32,7 @@ const Header = () => {
       <img
         src="/images/lele.jpg"
         alt=""
-        className="h-10 md:h-12 w-auto"
+        className="h-10 md:h-16 w-auto"
       />
       {/* Optional Text beside Logo */}
       <span className="text-xl md:text-2xl font-bold text-primary hidden md:inline">
