@@ -56,5 +56,5 @@ module.exports = {
     },
   },
   plugins: [require('@tailwindcss/line-clamp')],
-   base: '/cabin-lodge/', 
+   
 }
