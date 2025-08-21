@@ -15,20 +15,20 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-light">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-          {/* Background Image */}
+        {/* Hero */}
+        <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+          {/* Background Image from local public folder */}
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 w-full bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: "url('/images/mokota17.jpg')",
+              backgroundImage: "url('/images/mokota17.jpg')", // ✅ Points to public/images/mokota17.jpg
             }}
           >
-            <div className="absolute inset-0 bg-black/50"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
           </div>
 
           {/* Content */}
@@ -36,23 +36,23 @@ const Home = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={loaded ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="relative z-10 text-center text-light px-4 max-w-4xl mx-auto"
+            className="relative z-10 text-center text-light px-4"
           >
             <motion.h1
+              className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={loaded ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-3xl md:text-5xl font-bold mb-6 leading-tight"
             >
               Welcome to <br />
               <span className="text-accent">The Cabin Lodge Mokotakoti</span>
             </motion.h1>
 
             <motion.p
+              className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90"
               initial={{ opacity: 0, y: 20 }}
               animate={loaded ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90"
             >
               Escape to nature in our serene forest cabins. 
               Peace, comfort, and breathtaking views await.
@@ -62,12 +62,17 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={loaded ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="flex flex-col sm:flex-row justify-center gap-4 space-x-0 sm:space-x-6"
             >
-              <Link to="/cabins" className="btn-primary px-6 py-2 text-lg">
+              <Link
+                to="/cabins"
+                className="btn-primary inline-block text-lg mr-6"
+              >
                 Explore Cabins
               </Link>
-              <Link to="/contact" className="btn-secondary px-6 py-2 text-lg">
+              <Link
+                to="/contact"
+                className="btn-secondary inline-block text-lg"
+              >
                 Book Now
               </Link>
             </motion.div>
@@ -85,12 +90,12 @@ const Home = () => {
         </section>
 
         {/* Features Section */}
-        <section className="py-16 bg-light">
+        <section className="py-20 bg-light">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-primary">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-primary">
               Why Choose Us?
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-10 max-w-full overflow-hidden">
               {[
                 {
                   title: 'Serene Location',
@@ -113,16 +118,18 @@ const Home = () => {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="text-center p-5 rounded-xl bg-white shadow group hover:shadow-lg transition-shadow"
+                  transition={{ delay: i * 0.2, duration: 0.5 }}
+                  className="text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow group"
                 >
-                  <div className="flex justify-center mb-3">
-                    <div className="p-3 bg-accent/10 rounded-full group-hover:bg-accent/20 transition-colors">
-                      <feature.icon className="h-6 w-6 text-accent" />
+                  <div className="flex justify-center mb-4">
+                    <div className="p-4 bg-accent/10 rounded-full group-hover:bg-accent/20 transition-colors">
+                      <feature.icon className="h-8 w-8 text-accent" />
                     </div>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 text-primary">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm">{feature.desc}</p>
+                  <h3 className="text-xl font-semibold mb-3 text-primary">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600">{feature.desc}</p>
                 </motion.div>
               ))}
             </div>
